@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "MyFinanceApp",
+    "displayName": "MyFinanceApp",
     "slug": "MyFinanceApp",
     "version": "1.0.0",
     "orientation": "portrait",
