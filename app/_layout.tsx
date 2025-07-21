@@ -1,67 +1,62 @@
-import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, ScrollView, Dimensions, TouchableOpacity, Alert } from 'react-native';
-import Header from './index';
+import React from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
 import {
     faCirclePlus,
-    faEnvelope,
-    faMagnifyingGlass,
     faMicrophoneLines,
     faPiggyBank,
     faSackDollar
 } from '@fortawesome/free-solid-svg-icons';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import Icon from '@expo/vector-icons/MaterialIcons';
+import DonutChart from './components/DonutChart';
+
+
+
 // Путь к вашему компоненту
 
-class MyScreen extends React.Component<{ navigation: any }> {
-    render() {
-        let {navigation} = this.props;
-        return (
-            <View style={{flex: 1}}>
-                <View style={styles.header}>
-                    <Text style={styles.headerTitle}>11</Text>
-                    <Text style={styles.headerTitleMonday}>Monday</Text>
-                    <Text style={styles.headerNovember}>November 2024</Text>
-                    <FontAwesomeIcon icon={faMicrophoneLines} style={styles.styleFaMicriphoneLines} size={40}/>
-                    <FontAwesomeIcon icon={faCirclePlus} style={styles.styleFaCirclePlus} size={40}/>
+
+
+
+
+const myScreen = () => {
+    return (
+        <View style={{flex: 1}}>
+            <View style={styles.header}>
+
+                <Text style={styles.headerTitle}>11</Text>
+                <Text style={styles.headerTitleMonday}>Monday</Text>
+                <Text style={styles.headerNovember}>November 2025</Text>
+                <FontAwesomeIcon icon={faMicrophoneLines} style={styles.styleFaMicriphoneLines} size={40}/>
+                <FontAwesomeIcon icon={faCirclePlus} style={styles.styleFaCirclePlus} size={40}/>
+            </View>
+
+            <View style={styles.mainScreen}>
+                <View style={styles.mainViewLeft}>
+                    <Text style={styles.textExpenses}>Expenses:</Text>
+                    <Text style={styles.dollartitleleft}>-86 544$</Text>
+                    <FontAwesomeIcon icon={faSackDollar} style={styles.styleFaSackDollar} size={30} />
+
+                </View>
+                <View style={styles.mainViewRight}>
+                    <Text style={styles.textIncome}>Income:</Text>
+                    <Text style={styles.dollartitleright}>1 000 544$</Text>
+                    <FontAwesomeIcon icon={faPiggyBank} style={styles.styleFaPiggyBank} size={30}/>
+
                 </View>
 
+                <View style={{position: 'absolute', top: '45%', left: '42%'}}>
 
-                <View style={styles.mainScreen}>
-                    <View style={styles.mainViewLeft}>
-                        <Text style={styles.textExpenses}>Expenses</Text>
-                        <FontAwesomeIcon icon={faSackDollar} style={styles.styleFaSackDollar} size={30} />
-
-                    </View>
-                    <View style={styles.mainViewRight}>
-                        <Text style={styles.textIncome}>Income</Text>
-                        <FontAwesomeIcon icon={faPiggyBank} style={styles.styleFaPiggyBank} size={30}/>
-
-                    </View>
-
-                    <Text>Содержимое экsdsн</Text>
-
-
+                    <DonutChart />
                 </View>
 
 
             </View>
-        );
-    };
+        </View>
+    );
 }
-//creating pie chart
-const ProfileIndex = () => {
-    const [usd, setUsd] = useState('1000');
-    const [sc,setSc] = useState('500');
-    const [transactions, setTransactions] = useState([
-        {id: 1, name: 'Payment to Alice', amount: '200', date: '2023-07-15', type: 'sent'},
-        {id: 2, name: 'Payment from Bob', amount:'300', date:'2023-07-16', type: 'received'},
 
-    ]);
-    const [sentAmount, setSentAmount] = useState(0);
-    const [receivedAmount, setReceivedAmount] = useState(0);
-}
+
+//creating pie chart
+
 //pie chart adjustments
 
 
@@ -122,9 +117,6 @@ const styles = StyleSheet.create({
     },
 
     //MainView of the page
-    mainView: {
-        backgroundColor: 'green',
-    },
     textExpenses1: {
         fontSize: 10,
     },
@@ -143,22 +135,25 @@ const styles = StyleSheet.create({
         right: 15,
         top: 30,
     },
-    //
+    //here we are able to change the screen background
     mainScreen: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'gray',
+        backgroundColor: '#232B5D',//shading of the application
     },
     mainViewLeft: {
+        width: 190,
+        height: 100,
+        overflow: 'scroll',
         backgroundColor: 'lightblue',
         alignItems: 'flex-end',
         flexDirection: 'row',
         justifyContent: 'center',
         left: 0,
         position: 'absolute',
-        padding: 40,
-        paddingHorizontal: 95,
+        padding: 30,
+        paddingHorizontal: 60,
         borderRadius: 30,
         top: 175,
     },
@@ -169,15 +164,26 @@ const styles = StyleSheet.create({
         fontSize: 20,
         top: 15,
     },
+    dollartitleleft: {
+        fontSize: 20,
+        top: 10,
+    },
+    dollartitleright: {
+        fontSize: 20,
+        top: 10,
+    },
     mainViewRight: {
+        width: 190,
+        height: 100,
+        overflow: 'scroll',
         backgroundColor: 'lightblue',
         alignItems: 'flex-end',
         flexDirection: 'row',
         justifyContent: 'center',
         right: 0,
         position: 'absolute',
-        padding: 40,
-        paddingHorizontal: 95,
+        padding: 30,
+        paddingHorizontal: 60,
         borderRadius: 30,
         top: 175,
     },
@@ -214,5 +220,4 @@ const styles = StyleSheet.create({
         margin: 10,
     }
 });
-
-export default MyScreen;
+export default myScreen;
