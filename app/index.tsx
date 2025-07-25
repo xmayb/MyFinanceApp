@@ -24,7 +24,7 @@ const myScreen = () => {
 
                 <Text style={styles.headerTitle}>11</Text>
                 <Text style={styles.headerTitleMonday}>Monday</Text>
-                <Text style={styles.headerNovember}>November 2025</Text>
+                <Text style={styles.headerNovember}>November 2024</Text>
                 <FontAwesomeIcon icon={faMicrophoneLines} style={styles.styleFaMicriphoneLines} size={40}/>
                 <FontAwesomeIcon icon={faCirclePlus} style={styles.styleFaCirclePlus} size={40}/>
             </View>
@@ -47,8 +47,6 @@ const myScreen = () => {
 
                     <DonutChart />
                 </View>
-
-
             </View>
         </View>
     );
