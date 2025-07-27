@@ -1,9 +1,8 @@
 // app/login.tsx
 import React, {useState} from 'react';
 import { useRouter } from 'expo-router';
-import {View, Text, Button, StyleSheet, SafeAreaView, Dimensions, TextInput, Pressable} from 'react-native';
+import {View, Text, StyleSheet, SafeAreaView, Dimensions, TextInput, Pressable} from 'react-native';
 import Svg, {Image, Ellipse, ClipPath} from 'react-native-svg';
-import {StatusBar} from "expo-status-bar";
 import Animated, {useSharedValue, useAnimatedStyle, interpolate, withTiming, withDelay } from 'react-native-reanimated';
 
 
@@ -228,7 +227,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 20,
         top: -20,
-    }
+    },
 });
 
 

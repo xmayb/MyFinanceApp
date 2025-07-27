@@ -20,7 +20,7 @@ const colors = ['#f94144', '#f3722', '#90be6d'];
 
 export default function DonutChart() {
     return (
-        <View style={{marginTop: 10, justifyContent: 'center', alignItems: 'center', position: 'absolute', right: 0, left: 40, top: 30, bottom: 0}}>
+        <View style={{marginTop: 10, justifyContent: 'center', alignItems: 'center', position: 'absolute', right: 0, left: 40, top: 60, bottom: 0}}>
             <PieChart
                 data={pieData}
                 donut

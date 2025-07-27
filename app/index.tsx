@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
 import {
     faCirclePlus,
@@ -8,6 +8,7 @@ import {
     faSackDollar
 } from '@fortawesome/free-solid-svg-icons';
 import DonutChart from './components/DonutChart';
+import AddModalPlus from "./navigation/AddModalPlus";
 
 
 
@@ -17,16 +18,24 @@ import DonutChart from './components/DonutChart';
 
 
 
-const myScreen = () => {
+const MyScreen = () => {
+    const [modalVisible, setModalVisible] = useState(false);
+
     return (
         <View style={{flex: 1}}>
             <View style={styles.header}>
 
                 <Text style={styles.headerTitle}>11</Text>
                 <Text style={styles.headerTitleMonday}>Monday</Text>
-                <Text style={styles.headerNovember}>November 2024</Text>
+                <Text style={styles.headerNovember}>November 2044</Text>
+                <TouchableOpacity style={styles.styleFaCirclePlus} onPress={() => setModalVisible(true)}>
+                    <FontAwesomeIcon icon={faCirclePlus}  size={40}/>
+
+                </TouchableOpacity>
+
+                <AddModalPlus visible={modalVisible} onClose={() => setModalVisible(false)} />
                 <FontAwesomeIcon icon={faMicrophoneLines} style={styles.styleFaMicriphoneLines} size={40}/>
-                <FontAwesomeIcon icon={faCirclePlus} style={styles.styleFaCirclePlus} size={40}/>
+
             </View>
 
             <View style={styles.mainScreen}>
@@ -38,12 +47,12 @@ const myScreen = () => {
                 </View>
                 <View style={styles.mainViewRight}>
                     <Text style={styles.textIncome}>Income:</Text>
-                    <Text style={styles.dollartitleright}>1 000 544$</Text>
+                    <Text style={styles.dollartitleright}>1 0000544$</Text>
                     <FontAwesomeIcon icon={faPiggyBank} style={styles.styleFaPiggyBank} size={30}/>
 
                 </View>
 
-                <View style={{position: 'absolute', top: '45%', left: '42%'}}>
+                <View style={{position: 'absolute', top: '45%', left: '22%', width: 200}}>
 
                     <DonutChart />
                 </View>
@@ -67,13 +76,13 @@ const myScreen = () => {
 const styles = StyleSheet.create({
     //Top of the phone
     header: {
-        borderRadius:30,
+        borderRadius:40,
         position: 'absolute',
         top: 60,
-        left: 0,
-        right: 0,
+        left: 10,
+        right: 10,
         height: 100,
-        backgroundColor: 'lightblue',
+        backgroundColor: '#fff5e1',
         justifyContent: 'center',
         alignItems: 'center',
         paddingTop: 50,
@@ -123,7 +132,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'flex-start',
         position: 'absolute',
-        right: 70,
+        right: 55,
         top: 30,
     },
     styleFaCirclePlus: {
@@ -138,20 +147,20 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#232B5D',//shading of the application
+        backgroundColor: '#1a2e35',//shading of the application
     },
     mainViewLeft: {
-        width: 190,
+        width: 180,
         height: 100,
         overflow: 'scroll',
-        backgroundColor: 'lightblue',
+        backgroundColor: '#fff5e1',
         alignItems: 'flex-end',
         flexDirection: 'row',
         justifyContent: 'center',
-        left: 0,
+        left: 10,
         position: 'absolute',
-        padding: 30,
-        paddingHorizontal: 60,
+        padding: 35,
+        paddingHorizontal: 50,
         borderRadius: 30,
         top: 175,
     },
@@ -171,17 +180,17 @@ const styles = StyleSheet.create({
         top: 10,
     },
     mainViewRight: {
-        width: 190,
+        width: 180,
         height: 100,
         overflow: 'scroll',
-        backgroundColor: 'lightblue',
+        backgroundColor: '#fff5e1',
         alignItems: 'flex-end',
         flexDirection: 'row',
         justifyContent: 'center',
-        right: 0,
+        right: 10,
         position: 'absolute',
-        padding: 30,
-        paddingHorizontal: 60,
+        padding: 35,
+        paddingHorizontal: 50,
         borderRadius: 30,
         top: 175,
     },
@@ -204,7 +213,7 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         flexDirection: 'row',
         position: 'absolute',
-        left: 20,
+        left: 15,
         top: 10,
     },
     //pie chart styles
@@ -218,5 +227,5 @@ const styles = StyleSheet.create({
         margin: 10,
     }
 });
-export default myScreen;
+export default MyScreen;
 
